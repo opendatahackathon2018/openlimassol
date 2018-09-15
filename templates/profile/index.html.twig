@@ -3,28 +3,73 @@
 {% block title %}Profile{% endblock %}
 
 {% block body %}
-<style>
-  .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-  .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-<div class="example-wrapper">
-  <h1>Profile</h1>
-  <h3></h3>
-  <div>
-  <label>Air Quality
-    <input name="pollution" min="1" max="5" type="range">
-  </label>
-  </div>
-  <div>
-    <label>Accidents
-      <input name="accidents" min="1" max="5" type="range" value="2">
-    </label>
-  </div>
-  <div>
-    <label>Fire
-      <input name="fire" min="1" max="5" type="range" value="4">
-    </label>
-  </div>
-</div>
+    <div class="example-wrapper">
+	<h1>Profile</h1>
+	<h5>How frequent do you want to inform you regarding the followings?</h5>
+	<form>
+	    <p class="range-field">
+		<label>Air Quality
+		    <input name="pollution" min="1" max="5" type="range" value="3" onchange="updateTextInput(this.value, 'pollution');">
+		    <input type="text" id="textpollution" value="3">
+		</label>
+	    </p>
+	    <div class="range-field">
+		<label>Accidents
+		    <input name="accidents" min="1" max="5" type="range" value="2" onchange="updateTextInput(this.value, 'accidents');">
+		    <input type="text" id="textaccidents" value="2">
+		</label>
+	    </div>
+	    <div class="range-field">
+		<label>Fire
+		    <input name="fire" min="1" max="5" type="range" value="4"  onchange="updateTextInput(this.value, 'fire');">
+		    <input type="text" id="textfire" value="4">
+		</label>
+	    </div>
+	    <h5>Do you have any of the following health issues?</h5>
+	    <p>
+		<label>
+		    <input type="checkbox"/>
+		    <span>Asthma</span>
+		</label>
+	    </p>
+	    <p>
+		<label>
+		    <input type="checkbox"/>
+		    <span>Pregnant</span>
+		</label>
+	    </p>
+	    <p>
+		<label>
+		    <input type="checkbox"/>
+		    <span>Allergy</span>
+		</label>
+	    </p>
+	    <h5>Where do you work?</h5>
+	    <p>
+		<label>
+		    <input name="group1" type="radio" checked />
+		    <span>indoor</span>
+		</label>
+	    </p>
+	    <p>
+		<label>
+		    <input name="group1" type="radio" />
+		    <span>outdoor</span>
+		</label>
+	    </p>
+	    <h5>How many hours do you drive daily?</h5>
+	    <div class="range-field">
+		<label>
+		    <input name="fire" step="1" min="0" max="8" type="range" value="0" onchange="updateTextInput(this.value, 'driving');">
+		    <input type="text" id="textdriving" value="0">
+		</label>
+	    </div>
+
+	</form>
+    </div>
 {% endblock %}
